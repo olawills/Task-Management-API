@@ -39,9 +39,13 @@ const limiter = rateLimiter({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message: "Too many requests from this IP, please try again in an hour",
+  keyGenerator: function (req /*, res*/) {
+    return req.headers["x-real-ip"] || req.ip;
+  },
 });
 
 app.use(limiter);
+app.set('trust proxy', true);
 
 /**
  * Logger Middleware
