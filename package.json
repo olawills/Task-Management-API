@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "npm start server.js"
+    "start": "node server.js"
   },
   "author": "Williams Olabamidele",
   "license": "ISC",
