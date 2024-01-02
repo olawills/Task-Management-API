@@ -82,6 +82,14 @@ app.use(handleError);
 /**
  * status check
  */
+app.get("/", (req, res) => {
+  res.send({
+    Time: new Date(),
+    status: "running",
+  });
+});
+
+
 app.get("*", (req, res) => {
   res.send({
     Time: new Date(),
